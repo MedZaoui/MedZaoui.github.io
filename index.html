@@ -187,6 +187,37 @@
         background: #F2711C;
         }
 
+        /* Style bouton en savoir plus */
+        .more-link, .less-link {
+            font-size: 0.9em; /* Réduit la taille du texte */
+            color: #0056b3; /* Bleu foncé */
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .more-link:hover, .less-link:hover {
+            color: #003366; /* Bleu encore plus foncé au survol */
+            text-decoration: none; /* Enlève le soulignement au survol */
+        }
+
+        /* CSS pour l'icône d'information */
+        .info-icon {
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            color: #0056b3;
+            border: 2px solid #0056b3;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 12px;     /* Centrer verticalement le "i" */
+            font-weight: bold;
+            font-family: arial, sans-serif;
+            font-size: 12px;       /* Taille de police pour le "i" */
+            display: inline-block; /* Pour que info-icon s'aligne avec le texte */
+            margin-left: 8px;
+            cursor: pointer;
+            vertical-align: middle; /* Pour un meilleur alignement vertical */
+        }
+
     </style>
 
 </head>
@@ -208,7 +239,6 @@
         <br>
 
         <div class="row">
-            
             <!-- Description générale -->
             <div class="col-md-5">
                 <p>Profitez d'un cadre enchanteur au sommet d'une colline, 
@@ -219,25 +249,45 @@
                     ce chalet est fait pour vous.
                 </p>
                 <h2>Le chalet</h2>
-                <p>Le chalet est équipé de toutes les commodités pour un séjour luxueux. Détendez-vous dans le spa extérieur ou profitez du sauna intérieur
-                     après une journée d'activités. Un rond de feu extérieur est disponible pour des soirées sous les étoiles (dans les périodes permises),
-                      tandis que le grand foyer intérieur ajoute une touche chaleureuse aux nuits d'hiver.
-                       Un barbecue intérieur vous permet de savourer des grillades toute l'année. Pour votre divertissement,
-                     vous trouverez également un système de son, des jeux vidéo, une connexion Wi-Fi ultra-rapide et illimitée, et plus encore.
-                </p>
+                <section class="section-content" id="presentation">
+                    <!-- Résumé visible au départ -->
+                    <p class="summary">Détendez-vous dans un chalet tout confort : spa extérieur, sauna intérieur, rond de feu et foyer chaleureux pour les soirées d’hiver. 
+                        Profitez de Wi-Fi rapide, barbecue, jeux vidéo et système de son pour des moments inoubliables. 
+                        <span class="more-link" onclick="toggleText(this)">(en savoir plus)</span>
+                    </p>
+                    <!-- Texte complet caché au départ -->
+                    <p class="full-text" style="display: none;">Le chalet est équipé de toutes les commodités pour un séjour luxueux. Détendez-vous dans le spa extérieur ou profitez du sauna intérieur
+                        après une journée d'activités. Un rond de feu extérieur est disponible pour des soirées sous les étoiles (dans les périodes permises),
+                        tandis que le grand foyer intérieur ajoute une touche chaleureuse aux nuits d'hiver.
+                        Un barbecue intérieur vous permet de savourer des grillades toute l'année. Pour votre divertissement,
+                        vous trouverez également un système de son, des jeux vidéo, une connexion Wi-Fi ultra-rapide et illimitée, et plus encore. 
+                        <br><span class="less-link" onclick="toggleText(this)">(voir moins)</span>
+                    </p>
+                </section>
                 <h2>Localisation</h2>
-                <p>Situé à Sainte-Anne-des-Lacs, à moins d'une heure de Montréal (sans compter le trafic), dans la magnifique région des Laurentides, 
-                    le chalet offre un cadre idéal pour profiter des activités de plein air et de la nature, 
-                    tout en restant proche des commodités locales. 
-                    Niché dans un coin paisible à proximité de Saint-Sauveur, il permet d'accéder facilement aux nombreuses attractions des environs, 
-                    offrant ainsi un point de départ parfait pour explorer cette région emblématique du Québec.
-                </p> 
-                <p>Le chalet se trouve à seulement 2 minutes en voiture d'un dépanneur et d'une station-service, 
-                    vous permettant de vous approvisionner facilement. 
-                    Pour les conducteurs de véhicules électriques, des bornes de recharge rapides sont disponibles à moins de 5 minutes. 
-                    Tout ce dont vous avez besoin est à portée de main, et 
-                    les routes bien entretenues rendent la région facilement accessible toute l'année.
-                </p> 
+                <section class="section-content" id="localisation">
+                    <!-- Résumé visible au départ -->
+                    <p class="summary">Situé à Sainte-Anne-des-Lacs, ce chalet dans les Laurentides est parfait pour des activités en plein air tout en étant proche des commodités locales. 
+                        Recharge EV à proximité, dépanneur et accès facile aux routes assurent confort et praticité.
+                        <span class="more-link" onclick="toggleText(this)">(en savoir plus)</span>
+                    </p>                    
+                    <!-- Texte complet caché au départ -->
+                    <div class="full-text" style="display: none;">
+                        <p>Situé à Sainte-Anne-des-Lacs, à moins d'une heure de Montréal (sans compter le trafic), dans la magnifique région des Laurentides, 
+                            le chalet offre un cadre idéal pour profiter des activités de plein air et de la nature, 
+                            tout en restant proche des commodités locales. 
+                            Niché dans un coin paisible à proximité de Saint-Sauveur, il permet d'accéder facilement aux nombreuses attractions des environs, 
+                            offrant ainsi un point de départ parfait pour explorer cette région emblématique du Québec.
+                        </p> 
+                        <p>Le chalet se trouve à seulement 2 minutes en voiture d'un dépanneur et d'une station-service, 
+                            vous permettant de vous approvisionner facilement. 
+                            Pour les conducteurs de véhicules électriques, des bornes de recharge rapides sont disponibles à moins de 5 minutes. 
+                            Tout ce dont vous avez besoin est à portée de main, et 
+                            les routes bien entretenues rendent la région facilement accessible toute l'année. 
+                            <br><span class="less-link" onclick="toggleText(this)">(voir moins)
+                        </p></span>
+                    </div>
+                </section>                
             </div>
             
             <!-- Carousel d'images -->
@@ -289,7 +339,7 @@
     </section>
 
     <!-- Section localisation -->
-    <section class="container my-5">
+    <section class="container my-5" id="localisation">
         
         <div class="row">
             <!-- Conteneur pour la carte -->
@@ -298,45 +348,69 @@
             </div>
             <!-- Conteneur pour le texte -->
             <div class="col-md-5">
-                <h3>Un accès privilégié aux activités de plein air</h3> 
-                <p>Le chalet est idéalement situé pour les amateurs de nature et de sport. 
-                    Vous serez à moins de 10 minutes des célèbres pistes de ski du Mont Saint-Sauveur et de ses glissades sur tube. 
-                    Les amateurs de randonnée et de cyclisme apprécieront le parc linéaire du P'tit Train du Nord, 
-                    qui est accessible en seulement 15 minutes. 
-                    Cette ancienne voie ferrée transformée en piste multifonctionnelle offre plus de 230 km de sentiers pour le vélo, 
-                    la marche et le ski de fond, vous permettant de découvrir les paysages enchanteurs des Laurentides en toute saison.
-                </p>
-                <p>En été, les glissades d'eau du parc aquatique de Saint-Sauveur offrent une journée de divertissement pour toute la famille, 
-                    tandis que l'accès au lac à seulement 200 mètres du chalet vous invite à la baignade, au pédalo, ou à une balade en canoë. 
-                    Les amateurs de golf trouveront plusieurs parcours de qualité dans les environs, et 
-                    les parcs de randonnée des Laurentides offrent de superbes sentiers avec des vues panoramiques à couper le souffle.
-                </p>
+                <h3>Un accès privilégié aux activités de plein air</h3>
+                <section class="section-content" id="proximite">
+                    <!-- Résumé visible au départ -->
+                    <p class="summary">À moins de 10 minutes du ski au Mont Saint-Sauveur et du parc aquatique estival, 
+                        ce chalet offre également un accès au lac pour des baignades et au P’tit Train du Nord pour des balades. 
+                        Nature, sport et détente garantis.
+                        <span class="more-link" onclick="toggleText(this)">(en savoir plus)</span>
+                    </p>                    
+                    <!-- Texte complet caché au départ -->
+                    <div class="full-text" style="display: none;">
+                        <p>Le chalet est idéalement situé pour les amateurs de nature et de sport. 
+                            Vous serez à moins de 10 minutes des célèbres pistes de ski du Mont Saint-Sauveur et de ses glissades sur tube. 
+                            Les amateurs de randonnée et de cyclisme apprécieront le parc linéaire du P'tit Train du Nord, 
+                            qui est accessible en seulement 15 minutes. 
+                            Cette ancienne voie ferrée transformée en piste multifonctionnelle offre plus de 230 km de sentiers pour le vélo, 
+                            la marche et le ski de fond, vous permettant de découvrir les paysages enchanteurs des Laurentides en toute saison.
+                        </p>
+                        <p>En été, les glissades d'eau du parc aquatique de Saint-Sauveur offrent une journée de divertissement pour toute la famille, 
+                            tandis que l'accès au lac à seulement 200 mètres du chalet vous invite à la baignade, au pédalo, ou à une balade en canoë. 
+                            Les amateurs de golf trouveront plusieurs parcours de qualité dans les environs, et 
+                            les parcs de randonnée des Laurentides offrent de superbes sentiers avec des vues panoramiques à couper le souffle. 
+                            <br><span class="less-link" onclick="toggleText(this)">(voir moins)
+                        </p>
+                    </div>
+                </section>          
             </div>
         </div>
         <br>
         <h3>À proximité des villes et villages incontournables</h3>
-        <p>Le chalet se trouve également à une courte distance en voiture de plusieurs destinations intéressantes. 
-            Le charmant village de Saint-Sauveur est tout proche, avec ses restaurants, boutiques et événements culturels. 
-            Plus au nord, à environ 40 minutes, se trouve le célèbre Mont-Tremblant, 
-            où vous pourrez profiter d'activités de plein air tout au long de l'année, 
-            qu'il s'agisse de ski alpin, de golf, de randonnée, ou simplement de flâner dans le village piétonnier.
-        </p> 
-        <p>La ville de Sainte-Adèle, avec ses cafés, ses restaurants de qualité, et ses marchés locaux, est à seulement 15 minutes. 
-            Que vous soyez en quête de gastronomie, de relaxation ou d'aventure, 
-            les Laurentides offrent un large éventail d'expériences à découvrir. 
-            Grâce à l'emplacement central du chalet, avec une voiture vous pourrez explorer toute la région en toute liberté.
-        </p>
-        <p>En vous installant au chalet, vous serez non seulement entouré de forêts et de montagnes, 
-            mais également au cœur d'une région réputée pour ses activités récréatives, ses paysages époustouflants et 
-            sa qualité de vie exceptionnelle. Venez découvrir les Laurentides, un véritable paradis pour les amoureux de la nature et 
-            les amateurs de sports de plein air, tout en profitant du confort et de la tranquillité du Chalet des collines.
-        </p>
+        <section class="section-content" id="region">
+            <!-- Résumé visible au départ -->
+            <p class="summary">Explorez les Laurentides depuis ce chalet central, proche de Saint-Sauveur, Sainte-Adèle et Mont-Tremblant. 
+                Randonnée, ski, golf, restaurants et marchés locaux vous attendent pour un séjour nature et confort dans un cadre enchanteur.
+                <span class="more-link" onclick="toggleText(this)">(en savoir plus)</span>
+            </p>                    
+            <!-- Texte complet caché au départ -->
+            <div class="full-text" style="display: none;">
+                <p>Le chalet se trouve également à une courte distance en voiture de plusieurs destinations intéressantes. 
+                    Le charmant village de Saint-Sauveur est tout proche, avec ses restaurants, boutiques et événements culturels. 
+                    Plus au nord, à environ 40 minutes, se trouve le célèbre Mont-Tremblant, 
+                    où vous pourrez profiter d'activités de plein air tout au long de l'année, 
+                    qu'il s'agisse de ski alpin, de golf, de randonnée, ou simplement de flâner dans le village piétonnier.
+                </p> 
+                <p>La ville de Sainte-Adèle, avec ses cafés, ses restaurants de qualité, et ses marchés locaux, est à seulement 15 minutes. 
+                    Que vous soyez en quête de gastronomie, de relaxation ou d'aventure, 
+                    les Laurentides offrent un large éventail d'expériences à découvrir. 
+                    Grâce à l'emplacement central du chalet, avec une voiture vous pourrez explorer toute la région en toute liberté.
+                </p>
+                <p>En vous installant au chalet, vous serez non seulement entouré de forêts et de montagnes, 
+                    mais également au cœur d'une région réputée pour ses activités récréatives, ses paysages époustouflants et 
+                    sa qualité de vie exceptionnelle. Venez découvrir les Laurentides, un véritable paradis pour les amoureux de la nature et 
+                    les amateurs de sports de plein air, tout en profitant du confort et de la tranquillité du Chalet des collines. 
+                    <br><span class="less-link" onclick="toggleText(this)">(voir moins)
+                </p>
+            </div>
+        </section>       
 
     </section>
 
     <!-- Tableau des prix -->
-    <section class="container pricing-table">
-        <h2>Tarifs de location </h2><h6>(taxes en sus)</h6>
+    <section class="container pricing-table" id="prix">
+        <h2>Tarifs de location<span id="info-icon" class="info-icon">i</span></h2>
+        <h6>(taxes en sus)</h6>
         <table class="table table-bordered mt-3">
             <thead class="table-dark">
                 <tr>
@@ -381,7 +455,7 @@
     </section>
 
     <!-- Formulaire de contact -->
-    <section class="container my-5">
+    <section class="container my-5" id="contact">
         <h2>Contactez-nous</h2>
         <form action="https://formspree.io/f/xeoqeodz" method="POST">
             <!-- Limité à une seule URL dans les settings de Formspree -->
@@ -402,7 +476,7 @@
     </section>    
     
     <!-- Section autres éléments -->
-    <section class="container my-5">
+    <section class="container my-5" id="autres">
         <div>
             
             <h2>Enregistrement</h2>
@@ -633,116 +707,164 @@
     </script>
 
     <!-- Toast Javascript-->
-    
     <div class="hs-toast-wrapper  hs-toast-fixed-top " id="toast"></div>
-
     <script>
-    showToast({ 
-        eleWrapper: '#toast',
-        msg: 'Attention : Pour votre protection, toute réservation nécessite un numéro d\'identification de client unique (ICU) obtenu seulement via notre formulaire de contact officiel en bas de cette page.',
-        theme: 'success',
-        afterShow: function(){
-                    console.log('After show function');
-                    },
-        afterClose: function(){
-                    console.log('After close function');
-                    }
-    });
-
-    function showToast(option){
-        var wrapper = $(option.eleWrapper);
-        var toast = createToast(option);
-        toast = $(toast).hide().fadeIn(750);
-        if(option.autoClose){
-        var outTime  = option.autoCloseTime || 3500;
-        if(outTime < 1000){
-        outTime =  1000;
+        // Fonction pour vérifier si un élément est visible dans le viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= window.innerHeight && rect.bottom >= 0;
         }
-        var watch = setTimeout(function(){
-        toast.animate({ 'margin-top' : '-50px' , 'opacity': '0'},500, function(){
-            this.remove();
-            if(option.afterClose){
-            option.afterClose();
+
+        // Indicateur pour vérifier si le toast ICU a déjà été affiché
+        let toastDisplayed = false;
+
+        // Fonction pour afficher la première fois le toast ICU
+        function showUniqueToast() {
+            if (!toastDisplayed) {
+                showToastICU();
             }
-        })
-        }, outTime);
         }
 
-        $(wrapper).on('click', '.hs-close', function(){
-        $(this).closest('.hs-toast').remove();
-        //clearTimeout(watch);
-        if(option.afterClose){
-        option.afterClose();
-        }  
+        // Écoute l'événement de défilement pour afficher le toast ICU une fois
+        const priceTable = document.getElementById('prix');
+        window.addEventListener('scroll', function() {
+            if (isInViewport(priceTable)) {
+                showUniqueToast();
+            }
         });
 
-        $(wrapper).append(toast);
-        if(option.afterShow){
-        option.afterShow();
-        }
-    }
+        // Récupération de l'icône d'information et ajout de l'événement de clic
+        const infoIcon = document.getElementById('info-icon');
+        infoIcon.addEventListener('click', showToastICU);
 
-    function createToast(option){
-        var final = toastCaseValidation(option);
-        var html = `
-                <div class="hs-toast hs-theme-`+(option.theme).toLowerCase()+`">
-                    <div class="hs-toast-inner">                
-                    <div class="hs-toast-icons">
-                        `+final.icon+`
-                    </div>
-                    <div class="hs-toast-msg">
-                        `+final.msg+`
-                    </div>
-                    <div class="hs-toast-action">
-                        `+final.close+`
-                    </div>
-                    </div>
-                </div>`;
-        return html;
-    }
-
-    function toastCaseValidation(option){
-        var finalOption={};
-        var toastmsg;
-        var themeIco;
-        var closeBtn =  '<button type="button" class="hs-close">&#10006;</button>';
-        switch(option.theme) {
-        case 'error':
-        themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2"  cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <line fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"  x1="10.5" y1="10.5" x2="19.5" y2="19.5" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </line> <line fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"  x1="19.5" y1="10.5" x2="10.5" y2="19.5" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </line> </svg>';
-        break;
-        case 'success':
-        themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2" cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <polyline fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" points="8,17 13,21 22,10" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </polyline> </svg>';
-        break;
-        case 'warning':
-        themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30" > <path  d="M 13 2 Q 15,0 17,2 L 26,23 Q 26,26 23,26 L 6,26 Q 2,26 3,22 L 13,2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="0.9s" /> </path> <line  fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="9" x2="15" y2="17" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="5s" /> </line> <line  fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="21" x2="15" y2="22" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="5s" /> </line> </svg>';
-        break;
-        default:
-        themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2" cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <line fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="9" x2="15" y2="9" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="6s" /> </line> <line fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="15" x2="15" y2="22" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="6s" /> </line> </svg>';
-        }
-        if(option.closeButton == false){
-        closeBtn = '';
+        function showToastICU() {
+            showToast({ 
+            eleWrapper: '#toast',
+                    msg: 'Attention : Pour votre protection, toute réservation doit être faite en utilisant le formulaire de contact officiel ci-dessous.',
+                    theme: 'success',
+                    afterShow: function(){
+                        console.log('Toast displayed');
+                        toastDisplayed = true; // Indique que le toast a été affiché
+                    },
+                    afterClose: function(){
+                        console.log('Toast closed');
+                        // Optionnel : permettre de réinitialiser le toastDisplayed si on veut le réafficher plus tard
+                    }
+            });
         }
 
-        if(option.msg == undefined ){ 
-        toastmsg = 'No Message';
+        function showToast(option){
+            var wrapper = $(option.eleWrapper);
+            var toast = createToast(option);
+            toast = $(toast).hide().fadeIn(750);
+            if(option.autoClose){
+            var outTime  = option.autoCloseTime || 3500;
+            if(outTime < 1000){
+            outTime =  1000;
+            }
+            var watch = setTimeout(function(){
+            toast.animate({ 'margin-top' : '-50px' , 'opacity': '0'},500, function(){
+                this.remove();
+                if(option.afterClose){
+                option.afterClose();
+                }
+            })
+            }, outTime);
+            }
+
+            $(wrapper).on('click', '.hs-close', function(){
+            $(this).closest('.hs-toast').remove();
+            //clearTimeout(watch);
+            if(option.afterClose){
+            option.afterClose();
+            }  
+            });
+
+            $(wrapper).append(toast);
+            if(option.afterShow){
+            option.afterShow();
+            }
         }
-        else{
-        if(option.msg.length != 1  && typeof option.msg === "object" ){ 
-        toastmsg = '<ul>';            
-            option.msg.forEach(function(val,index){                     
-            toastmsg = toastmsg + '<li>'+val+'</li>';
-            });                
-        toastmsg = toastmsg +'</ul>';     
+
+        function createToast(option){
+            var final = toastCaseValidation(option);
+            var html = `
+                    <div class="hs-toast hs-theme-`+(option.theme).toLowerCase()+`">
+                        <div class="hs-toast-inner">                
+                        <div class="hs-toast-icons">
+                            `+final.icon+`
+                        </div>
+                        <div class="hs-toast-msg">
+                            `+final.msg+`
+                        </div>
+                        <div class="hs-toast-action">
+                            `+final.close+`
+                        </div>
+                        </div>
+                    </div>`;
+            return html;
         }
-        else{                                
-        toastmsg =option.msg;             
+
+        function toastCaseValidation(option){
+            var finalOption={};
+            var toastmsg;
+            var themeIco;
+            var closeBtn =  '<button type="button" class="hs-close">&#10006;</button>';
+            switch(option.theme) {
+            case 'error':
+            themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2"  cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <line fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"  x1="10.5" y1="10.5" x2="19.5" y2="19.5" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </line> <line fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"  x1="19.5" y1="10.5" x2="10.5" y2="19.5" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </line> </svg>';
+            break;
+            case 'success':
+            themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2" cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <polyline fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" points="8,17 13,21 22,10" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="4s" /> </polyline> </svg>';
+            break;
+            case 'warning':
+            themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30" > <path  d="M 13 2 Q 15,0 17,2 L 26,23 Q 26,26 23,26 L 6,26 Q 2,26 3,22 L 13,2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="0.9s" /> </path> <line  fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="9" x2="15" y2="17" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="5s" /> </line> <line  fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="21" x2="15" y2="22" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="5s" /> </line> </svg>';
+            break;
+            default:
+            themeIco = '<svg aria-hidden="true" focusable="false"  xmlns="http://www.w3.org/2000/svg" width="1.875em" height="1.875em" viewBox="0 0 30 30"> <circle fill="none" stroke="#fff" stroke-width="2" cx="50%" cy="50%" r="13" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset" from="100" to="0" dur="0.9s" /> </circle> <line fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="9" x2="15" y2="9" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="6s" /> </line> <line fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" x1="15" y1="15" x2="15" y2="22" stroke-dasharray="100"> <animate attributeName="stroke-dashoffset"  from="100" to="0" dur="6s" /> </line> </svg>';
+            }
+            if(option.closeButton == false){
+            closeBtn = '';
+            }
+
+            if(option.msg == undefined ){ 
+            toastmsg = 'No Message';
+            }
+            else{
+            if(option.msg.length != 1  && typeof option.msg === "object" ){ 
+            toastmsg = '<ul>';            
+                option.msg.forEach(function(val,index){                     
+                toastmsg = toastmsg + '<li>'+val+'</li>';
+                });                
+            toastmsg = toastmsg +'</ul>';     
+            }
+            else{                                
+            toastmsg =option.msg;             
+            }
+            }
+            finalOption.icon = themeIco;
+            finalOption.close = closeBtn;
+            finalOption.msg = toastmsg;
+            return finalOption;
+        }
+    </script>
+
+    <!-- More-Less toggle Javascript-->
+    <script>
+        function toggleText(element) {
+        const section = element.closest('.section-content');
+        const summary = section.querySelector('.summary');
+        const fullText = section.querySelector('.full-text');
+
+        // Alterne entre afficher le résumé et le texte complet
+        if (summary.style.display === 'none') {
+            summary.style.display = 'block';
+            fullText.style.display = 'none';
+        } else {
+            summary.style.display = 'none';
+            fullText.style.display = 'block';
         }
         }
-        finalOption.icon = themeIco;
-        finalOption.close = closeBtn;
-        finalOption.msg = toastmsg;
-        return finalOption;
-    }
     </script>
 
 </body>
